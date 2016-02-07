@@ -1,3 +1,16 @@
 <h1>Resources</h1>
 
+<TABLE border="1">
+  <% @hostinfodata_json.each do |f| %>
+    <tr><td rowspan=<%= f['guest'].count.to_s %> ><%= f['host'] %></td>
+    <% f['guest'].each do |g| %>
+      <td><%= g['name'] %></td><td><%= g['mem'] %></td></tr>
+    <% end %>
+  <% end %>
+</TABLE>
+
 <p><%= link_to "Top Page", top_path %></p>
+
+--- for debug ------------------------<br />
+<%= @hostinfodata_json.inspect %><br />
+-------------------------------------------<br />
